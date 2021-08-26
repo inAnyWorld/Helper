@@ -1,4 +1,4 @@
-package uuids
+package gouuid
 
 import (
 	uuid "github.com/nu7hatch/gouuid"

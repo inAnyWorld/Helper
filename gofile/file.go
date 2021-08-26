@@ -1,4 +1,4 @@
-package files
+package gofile
 
 import (
 	"io/ioutil"

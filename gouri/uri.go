@@ -1,4 +1,4 @@
-package urls
+package gouri
 
 import (
 	"net/url"

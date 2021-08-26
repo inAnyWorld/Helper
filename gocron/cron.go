@@ -1,4 +1,4 @@
-package crons
+package gocron
 
 import "github.com/robfig/cron/v3"
 
