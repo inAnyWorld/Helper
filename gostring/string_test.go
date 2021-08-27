@@ -6,6 +6,10 @@ import (
 	"testing"
 )
 
+type Example struct {
+	Examples string
+}
+
 func TestByteToString(t *testing.T) {
 	b := []byte("123abc")
 	s := ByteToString(&b)
@@ -86,5 +90,42 @@ func TestBase64Encode(t *testing.T)  {
 		if gotStr != wantStr {
 			t.Errorf("The str values of %v is not %v\n", gotStr, wantStr)
 		}
+	}
+}
+
+func TestStructName(t *testing.T) {
+	e := `Example`
+	structName := StructName(&Example{})
+	if e != structName {
+		t.Errorf("The struct name values of %v is not %v\n", e, structName)
+	}
+}
+
+func TestCalculatePercentage(t *testing.T) {
+	e1 := `50%`
+	p1 := CalculatePercentage(1, 2)
+	if e1 != p1 {
+		t.Errorf("The percentage values of %v is not %v\n", e1, p1)
+	}
+
+	e2 := `33.33%`
+	p2 := CalculatePercentage(1, 3)
+
+	if e2 != p2 {
+		t.Errorf("The percentage values of %v is not %v\n", e2, p2)
+	}
+
+	e3 := `0.00%`
+	p3 := CalculatePercentage(1, 0)
+	if e3 != p3 {
+		t.Errorf("The percentage values of %v is not %v\n", e3, p3)
+	}
+}
+
+func TestRandStringRunes(t *testing.T) {
+	n1 := 1
+	s1 := RandStringRunes(n1)
+	if len(s1) != n1 {
+		t.Errorf("The round len of %v is not %v\n", n1, len(s1))
 	}
 }

@@ -63,7 +63,7 @@ func CalculatePercentage(compare int, toBeCompare int) string {
 	if compare == toBeCompare {
 		return "0.00%"
 	}
-	percentage := float64(compare - toBeCompare) / float64(toBeCompare)
+	percentage := float64(compare) / float64(toBeCompare)
 	percentageValue, percentageErr := strconv.ParseFloat(fmt.Sprintf("%.4f", percentage), 64)
 	if percentageErr != nil {
 		return "0.00%"
@@ -71,10 +71,6 @@ func CalculatePercentage(compare int, toBeCompare int) string {
 	return fmt.Sprintf("%v%%", percentageValue * 100)
 }
 
-// IncomePercentage 计算收入百分比(暂时不会使用此字段)
-func IncomePercentage() string {
-	return "0.00%"
-}
 
 // RandStringRunes 返回随机字符串
 func RandStringRunes(n int) string {
