@@ -69,3 +69,22 @@ func TestConvString(t *testing.T) {
 		t.Errorf("The values of empty string %v is not %v\n", ss, wantSS)
 	}
 }
+
+func TestBase64Encode(t *testing.T)  {
+	s := 1234
+	s1 := strconv.Itoa(s)
+	gotInt := Base64Encode(s1)
+	wantInt := `MTIzNA==`
+	if gotInt != wantInt {
+		t.Errorf("The int values of %v is not %v\n", gotInt, wantInt)
+	}
+
+	s2 := `1234abc`
+	gotStr := Base64Encode(s2)
+	wantStr := `MTIzNGFiYw==`
+	if gotStr != wantStr {
+		if gotStr != wantStr {
+			t.Errorf("The str values of %v is not %v\n", gotStr, wantStr)
+		}
+	}
+}

@@ -43,7 +43,7 @@ func ConvString(i interface{}) (s string) {
 }
 
 // Base64Encode base64编码
-func Base64Encode(encodeStr string ) string {
+func Base64Encode(encodeStr string) string {
 	base64Str := encodeStr
 	base64Byte := []byte(base64Str)
 	return base64.StdEncoding.EncodeToString(base64Byte)
