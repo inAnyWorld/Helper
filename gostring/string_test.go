@@ -197,7 +197,12 @@ func TestSubstr(t *testing.T) {
 	s1 := `3&`
 	e1 := Substr(`abc@123&`, -1, 2)
 	if s1 != e1 {
-		t.Errorf("The Substr values of %v is not %v\n", e, s1)
+		t.Errorf("The Substr values of %v is not %v\n", e1, s1)
 	}
 
+	s2 := `abc@123&`
+	e2 := Substr(`abc@123&`, 0, 9999)
+	if s2 != e2 {
+		t.Errorf("The Substr values of %v is not %v\n", e2, s2)
+	}
 }
