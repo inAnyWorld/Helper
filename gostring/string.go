@@ -83,8 +83,8 @@ func RandStringRunes(n int) string {
 	return string(b)
 }
 
-// RandomString2 1字母,2数值,3字母+数值,4字母+数值+特殊字符,5仅中文
-func RandomString2(length uint8, sType int) string {
+// RandomString 1字母,2数值,3字母+数值,4字母+数值+特殊字符,5仅中文
+func RandomString(length uint8, sType int) string {
 	if length == 0 {
 		return ""
 	}
@@ -136,7 +136,7 @@ func GetBetweenStr(str, start string, end string) string {
 }
 
 // Substr 字符串截取
-func Substr(str string, start, length int) string {
+func Substr(str string, start int, length int) string {
 	rs := []rune(str)
 	rl := len(rs)
 	end := 0

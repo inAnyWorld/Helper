@@ -22,7 +22,7 @@ func TestByteToString(t *testing.T) {
 
 func TestConvString(t *testing.T) {
 	// int
-	var i int = 8
+	i := 8
 	got8 := strconv.Itoa(i)
 	want8 := ConvString(i)
 	if !reflect.DeepEqual(got8, want8) {
@@ -46,7 +46,7 @@ func TestConvString(t *testing.T) {
 	}
 
 	// float
-	var f float64 = 3.1415
+	f := 3.1415
 	got64f := strconv.FormatFloat(f, 'f', -1, 64)
 	want64f := ConvString(f)
 	if !reflect.DeepEqual(got64f, want64f) {
@@ -54,7 +54,7 @@ func TestConvString(t *testing.T) {
 	}
 
 	// string
-	var s string = `is string`
+	s := `is string`
 	wants := ConvString(s)
 	if !reflect.DeepEqual(s, wants) {
 		t.Errorf("The values of string %v is not %v\n", s, wants)
@@ -67,7 +67,7 @@ func TestConvString(t *testing.T) {
 		t.Errorf("The values of bool %v is not %v\n", o, wants)
 	}
 
-	var ss string = ""
+	ss := ""
 	wantSS := ConvString(ss)
 	if !reflect.DeepEqual(ss, wantSS) {
 		t.Errorf("The values of empty string %v is not %v\n", ss, wantSS)
@@ -97,7 +97,7 @@ func TestStructName(t *testing.T) {
 	e := `Example`
 	structName := StructName(&Example{})
 	if e != structName {
-		t.Errorf("The struct name values of %v is not %v\n", e, structName)
+		t.Errorf("The struct name values of %v is not %v\n", structName, e)
 	}
 }
 
@@ -126,6 +126,78 @@ func TestRandStringRunes(t *testing.T) {
 	n1 := 1
 	s1 := RandStringRunes(n1)
 	if len(s1) != n1 {
-		t.Errorf("The round len of %v is not %v\n", n1, len(s1))
+		t.Errorf("The round len values of %v is not %v\n", n1, len(s1))
 	}
+}
+
+func TestRandomString(t *testing.T) {
+	var n1 uint8 = 4
+	s1 := RandomString(n1, 1)
+
+	if len(s1) != 4 {
+		t.Errorf("The round type values of 1 len of %v is not %v\n", n1, len(s1))
+	}
+
+	s2 := RandomString(4, 2)
+	if len(s2) != 4 {
+		t.Errorf("The round type values of values2 len of %v is not %v\n", n1, len(s2))
+	}
+
+	s3 := RandomString(4, 3)
+	if len(s3) != 4 {
+		t.Errorf("The round type values of 3 len of %v is not %v\n", n1, len(s3))
+	}
+
+	s4 := RandomString(4, 4)
+	if len(s3) != 4 {
+		t.Errorf("The round type values of 4 len of %v is not %v\n", n1, len(s4))
+	}
+
+	s5 := RandomString(4, 5)
+	if len(s3) != 4 {
+		t.Errorf("The round type values of 5 len of %v is not %v\n", n1, len(s5))
+	}
+}
+
+func TestGetBetweenStr(t *testing.T) {
+	s := "@abc456"
+	e := GetBetweenStr(`@abc456%`, "@", "%")
+	if s != e {
+		t.Errorf("The GetBetweenStr values of %v is not %v\n", e, s)
+	}
+
+	e1 := GetBetweenStr(`vcx@abc456%aio`, "@", "%")
+	if s != e1 {
+		t.Errorf("The GetBetweenStr values of %v is not %v\n", e1, s)
+	}
+
+	e2 := GetBetweenStr(`@abc456%aio`, "@", "%")
+	if s != e1 {
+		t.Errorf("The GetBetweenStr values of %v is not %v\n", e2, s)
+	}
+
+	e3 := GetBetweenStr(`aaaa@abc456%`, "@", "%")
+	if s != e3 {
+		t.Errorf("The GetBetweenStr values of %v is not %v\n", e3, s)
+	}
+
+	e4 := GetBetweenStr(`@abc456%`, "@", "%")
+	if s != e3 {
+		t.Errorf("The GetBetweenStr values of %v is not %v\n", e4, s)
+	}
+}
+
+func TestSubstr(t *testing.T) {
+	s := `a`
+	e := Substr(`abc@123&`, 0, 1)
+	if s != e {
+		t.Errorf("The Substr values of %v is not %v\n", e, s)
+	}
+
+	s1 := `3&`
+	e1 := Substr(`abc@123&`, -1, 2)
+	if s1 != e1 {
+		t.Errorf("The Substr values of %v is not %v\n", e, s1)
+	}
+
 }
