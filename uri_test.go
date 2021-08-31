@@ -1,7 +1,6 @@
 package helper
 
 import (
-	"fmt"
 	"log"
 	"testing"
 )
@@ -9,7 +8,6 @@ import (
 func TestParseUriQueryToMap(t *testing.T) {
 
 	m := TUri.ParseUriQueryToMap(exampleUriStr)
-	fmt.Println(m)
 	if _, ok := m["Av"]; !ok {
 		t.Errorf("ParseUriQueryToMap Errors")
 	}
@@ -17,12 +15,11 @@ func TestParseUriQueryToMap(t *testing.T) {
 
 func TestGetQueryParams(t *testing.T) {
 	m := make(UriValues)
-	m, mError := TUri.parseUriQuery(m, exampleUriStr)
+	m, mError := TUri.ParseUriQuery(m, exampleUriStr)
 	if mError != nil {
 		t.Errorf("parseQuery Errors:%v \n", mError)
 	}
 	av := TUri.GetQueryParams(m, "av")
-	fmt.Println(m)
 	if av == "" {
 		t.Errorf("the values of %v is not %v \n", "5.3.5", "")
 	}

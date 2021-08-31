@@ -57,8 +57,8 @@ func (tu *TsUri) GetDomain(str string, isMains ...bool) string {
 	return domain
 }
 
-// parseQuery 解析uri参数
-func (tu *TsUri) parseUriQuery(m UriValues, query string) (map[string][]string, error) {
+// ParseUriQuery 解析uri参数
+func (tu *TsUri) ParseUriQuery(m UriValues, query string) (map[string][]string, error) {
 	var err error
 	q := strings.Split(query, "?")
 	if len(q) < 2 {

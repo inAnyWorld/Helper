@@ -29,7 +29,7 @@ func example() {
 	arr := [5]int{1, 2, 3, 4, 5}
 	i := 2
 	if helper.TArr.InArray(i, arr) {
-		fmt.Printf(" %v in %v \n", i, arr)
+		fmt.Printf(" %v in %v \n", i, arr) //  2 in [1 2 3 4 5]
 	}
 
 	// debug
@@ -44,7 +44,37 @@ func example() {
 	jsonArr := `[{"email_address":"test1@email.com"},{"email_address":"test2@email.com"}]`
 	m := helper.TJson.JsonToMapArr(jsonArr)
 	fmt.Println(m) // [map[email_address:test1@email.com] map[email_address:test2@email.com]]
-	// ...
+
+	// convert
+	inter := helper.TConv.Int2Str(s1)
+	fmt.Println(inter) // 123456
+
+	// hash
+	h := "abc123tre"
+	hashcode := helper.THash.HashCode(h)
+	fmt.Println(hashcode) // 44 
+
+	// os
+	endian := helper.TOs.GetEndian()
+	fmt.Println(endian) // LittleEndian
+
+	// file
+	f := "./testname.txt"
+	fileName := helper.TFile.Basename(f)
+	fmt.Println(fileName) // testname.txt
+
+	// encrypt
+	ek := "Key"
+	enc := helper.TEncrypt.EasyEncrypt(s1, ek)
+	fmt.Println(enc) // 89735695aWtqZ2ps
+	dec := helper.TEncrypt.EasyDecrypt(enc, ek)
+	fmt.Println(dec) // 123456
+
+	// url
+	uri := `http://localhost/report?Av=5.3.5&Bd=bdtest&Cid=023&CityCode=101030100&Did=70836bc3ae68fddbc78ce5a917ae9e9d60c712df&Imei=`
+	qm := helper.TUri.ParseUriQueryToMap(uri)
+	fmt.Println(qm) // map[Av:5.3.5 Bd:bdtest Cid:023 CityCode:101030100 Did:70836bc3ae68fddbc78ce5a917ae9e9d60c712df Imei:]
+	// ... other
 }
 ```
 
