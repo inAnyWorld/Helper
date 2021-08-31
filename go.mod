@@ -1,4 +1,4 @@
-module helper
+module github.com/applytogetintoyourlife/Helper
 
 go 1.15
 
