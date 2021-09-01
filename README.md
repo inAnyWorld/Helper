@@ -5,7 +5,7 @@
 ##### 2.一些常用的助手函数工具包
 
 ##### 3.获取 
-go get https://github.com/golangtoolkit/helper
+go get github.com/golangtoolkit/helper
 
 ##### 4. 示例 for example
 ```Golang
