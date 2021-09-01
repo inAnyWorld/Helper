@@ -1,11 +1,11 @@
 # Helper
-##### 1.仓库迁移至☞ https://github.com/golangtoolkit
+##### 1.仓库迁移至☞ https://github.com/golangtoolkit/helper
 此仓库不再更新维护
 
 ##### 2.一些常用的助手函数工具包
 
 ##### 3.获取 
-go get -u github.com/golangtoolkit
+go get https://github.com/golangtoolkit/helper
 
 ##### 4. 示例 for example
 ```Golang
